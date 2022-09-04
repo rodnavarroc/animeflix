@@ -1,0 +1,50 @@
+.navigationContainer {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    border-bottom: solid 1px #19113e;
+
+    .item {
+        &.logo {
+            display: flex;
+            align-items: center;
+
+            h1 {
+                margin-left: 12px;
+                font-size: 24px;
+                font-weight: 700;
+                color: white;
+            }
+        }
+
+        &.options {
+            display: flex;
+
+            .option {
+                &.search {
+                    margin-right: 6px;
+
+                    input {
+                        border: none;
+                        background: rgba(4, 3, 23, 0.7);
+                        width: 15vw;
+                        height: 32px;
+                        border-radius: 24px;
+                        color: #827ba0;
+                        font-family: Poppins;
+                        padding-left: 12px;
+                    }
+                }
+
+                &.profile {
+                    background: rgba(4, 3, 23, 0.7);
+                    border-radius: 100%;
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+        }
+    }
+}

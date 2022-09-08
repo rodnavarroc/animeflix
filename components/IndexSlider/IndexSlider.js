@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -47,23 +47,28 @@ const IndexSlider = () => {
         },
     ]
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth >= 768 ? false : true)
+        console.log("Es movil: " + isMobile)
+    }, [])
+
     return (
         <div className="indexSliderContainer">
-            <div className="bg-animes">
-                <Swiper
-                    slidesPerView={6}
-                    spaceBetween={30}
-                    centeredSlides={true}
-                    navigation={true}
-                    modules={[Navigation]}
-                >
-                    {animes.map((item, index) => (
-                        <SwiperSlide className='slide' key={index}>
-                            <img src={item.cover} />                            
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </div>
+            <Swiper
+                slidesPerView={isMobile ? 2 : 6}
+                spaceBetween={30}
+                centeredSlides={true}
+                navigation={true}
+                modules={[Navigation]}
+            >
+                {animes.map((item, index) => (
+                    <SwiperSlide className='slide' key={index}>
+                        <img src={item.cover} />
+                    </SwiperSlide>
+                ))}
+            </Swiper>
         </div>
     )
 }
